@@ -1,7 +1,7 @@
 plot2 <- function(){
  
-  data_full <- read.csv("household_power_consumption.txt", header=T, sep=';', na.strings="?", check.names=F, stringsAsFactors=F, comment.char="", quote='\"')
-  data1 <- subset(data_full, Date %in% c("1/2/2007","2/2/2007")) ## Reads only selected data 
+  data<- read.csv("household_power_consumption.txt", header=T, sep=';', na.strings="?", check.names=F, stringsAsFactors=F, comment.char="", quote='\"')
+  data1 <- subset(data, Date %in% c("1/2/2007","2/2/2007")) ## Reads only selected data 
   data1$Date <- as.Date(data1$Date, format="%d/%m/%Y")     ##Changing the format
   datetime <- paste(as.Date(data1$Date), data1$Time)     
   data1$Datetime <- as.POSIXct(datetime)
