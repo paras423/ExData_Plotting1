@@ -6,7 +6,7 @@ plot3 <- function(){
   data1$Date <- as.Date(data1$Date, format="%d/%m/%Y")
   datetime <- paste(as.Date(data1$Date), data1$Time)
   data1$Datetime <- as.POSIXct(datetime)
-  dev.copy(png, file="plot3.png", height=480, width=480)
+  
   with(data1, {
     plot(Sub_metering_1~Datetime, type="l",
          ylab="Global Active Power (kilowatts)", xlab="")
@@ -15,5 +15,6 @@ plot3 <- function(){
   })
   legend("topright", col=c("black", "red", "blue"), lty=1, lwd=2,          ## For the data 
          legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+  dev.copy(png, file="plot3.png", height=480, width=480)
   dev.off()
 }
